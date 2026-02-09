@@ -1,129 +1,310 @@
-<p>
-I promised god I wouldn’t ask him for anything this year, but today I make an exception.
-</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Anonymous Letter</title>
 
-<p>
-I pray you get everything you’re working so damn hard for. I hope every obstacle, every difficulty, every pain is erased from your life. I hope every sacrifice, every difficulty, and every struggle pays you triple fold back.
-</p>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 
-<p>
-You’re the best thing that ever happened to me sudharshan, and I’ll never forgive myself for losing that.
-</p>
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #c9c6c1;
+  font-family: 'Libre Baskerville', serif;
+}
 
-<p>
-But no one is more grateful for this day than me, because if it wasn’t for this day, you would’ve never came into my life.
-</p>
+/* HEARTS */
+.heart {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  opacity: 0.8;
+  z-index: 1;
+  animation: pulse 2s ease-in-out infinite alternate, floatHeart linear infinite;
+}
 
-<p>
-Special shoutout to Aunty Maggie for bringing her pretty princess into this world — standing ovation because no one’s topping that.
-</p>
+@keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
 
-<p>
-Thank you for being you, for always listening to me yap about irrelevant shit. Thank you for always being there. Thank you for giving me the happiest 4 months of my life.
-</p>
+@keyframes floatHeart {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
 
-<p>
-Oh and this is for you 🏆<br>
-For making me retire at such a young age.
-</p>
+/* LETTER */
+#letter-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 80%;
+  background: #f7f5f0;
+  border-radius: 6px;
+  padding: 50px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+  overflow: hidden;
+  z-index: 5;
+  display: none;
+}
 
-<p>
-I’ll never fully be able to explain how happy you make me. I’ll never be able to explain how empty it feels when I don’t speak to you, or that sinking fear that some day in the future there’s gonna be a day where we won’t even be talking — it’ll be like we never even met.
-</p>
+/* Vintage lines */
+#letter-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.07),
+      rgba(0,0,0,0.07) 1px,
+      transparent 1px,
+      transparent 32px
+    );
+  pointer-events: none;
+}
 
-<p>
-Except we did, which is why that sinking terror haunts me every fucking day.
-</p>
+#letter {
+  position: relative;
+  height: 100%;
+  overflow-y: auto;
+  padding-right: 20px;
+  line-height: 1.9;
+  color: #1c1c1c;
+  z-index: 2;
+}
 
-<p>
-And I’m telling you this because I want you to know how much you’re fucking worth brah.
-</p>
+#letter::-webkit-scrollbar {
+  width: 6px;
+}
+#letter::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.2);
+  border-radius: 3px;
+}
 
-<p>
-Making ME scared of LOSING a person — oh wait 🏆 here’s another one!!!
-</p>
+/* ENVELOPE */
+#envelope {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 320px;
+  height: 200px;
+  cursor: pointer;
+  z-index: 10;
+}
 
-<p>
-Thank you for knowing me so well. Yea it’s annoying asf but the fact that it didn’t even take you that long to know me to the extent that you did, that’s a lot for me.
-</p>
+#env-body {
+  width: 100%;
+  height: 100%;
+  background: black;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
 
-<p>
-I am so so proud of you.
-</p>
+#env-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0; 
+  height: 0;
+  border-left: 160px solid transparent;
+  border-right: 160px solid transparent;
+  border-bottom: 100px solid #111;
+  transform-origin: top center;
+  transition: transform 1s ease;
+}
 
-<p>
-I’m proud of how you never give up, of how you know what you want and nothing is gonna stop you from achieving that.
-</p>
+#env-text {
+  position: absolute;
+  top: 38%;
+  width: 100%;
+  text-align: center;
+  color: white;
+  letter-spacing: 2px;
+  font-size: 1.1em;
+}
 
-<p>
-I’m proud of how ambitious you are, how smart you are.
-</p>
+/* POPUP */
+#popup {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 25px;
+  width: 520px;
+  border-radius: 12px;
+  text-align: center;
+  display: none;
+  z-index: 20;
+}
 
-<p>
-I’m proud of how you never let any thing bring you down. No matter how many things go wrong, I’m proud of how you don’t give up.
-</p>
+#popup button {
+  margin: 10px;
+  padding: 10px 25px;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  background: #7fbf9c;
+  font-size: 1em;
+}
 
-<p>
-One of the many things I love about you is how ambitious you are. You’re a guy with a plan. You don’t find that in a lot of people nowadays.
-</p>
+/* CHAMPAGNE */
+#champagne {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%,-50%) scale(0);
+  text-align: center;
+  z-index: 9;
+  transition: 0.8s ease;
+}
 
-<p>
-I’m also proud of your parents. They raised you right darling, and honestly I’ll forever be thankful to them because if it weren’t for them I would never have met my match 🥲
-</p>
+#champagne svg {
+  width: 140px;
+}
 
-<p>
-I used to think muruga sent you just for me and me only. I used to think it was meant to be, that he planned the whole thing like that.
-</p>
+#champagne span {
+  font-size: 3em;
+  color: #f5d76e;
+}
 
-<p>
-I just never thought that you being my last would mean you not being in my life — but still being the last.
-</p>
+.bubbles {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff9c4;
+  animation: bubbleUp 2s linear infinite;
+  opacity: 0.8;
+}
 
-<p>
-It’s you. And it’s always gonna be you.
-</p>
+@keyframes bubbleUp {
+  0% { transform: translateY(0) scale(0.8); opacity: 0.8; }
+  100% { transform: translateY(-150px) scale(1.2); opacity: 0; }
+}
+</style>
+</head>
 
-<p>
-You’re everything I didn’t even know I wanted or needed. And that is what makes it so damn different.
-</p>
+<body>
 
-<p>
-It would be different if I’d be saying you’re everything I’ve looked for. I haven’t looked for anything and yet you’re what I wanted without me even knowing I wanted it.
-</p>
+<!-- HEARTS -->
+<img class="heart" style="top:10%; left:15%;" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Heart_corazon.svg">
+<img class="heart" style="top:20%; right:12%;" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Heart_corazon.svg">
+<img class="heart" style="bottom:15%; left:8%;" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Heart_corazon.svg">
+<img class="heart" style="bottom:10%; right:18%;" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Heart_corazon.svg">
+<img class="heart" style="top:50%; left:5%;" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Heart_corazon.svg">
+<img class="heart" style="top:55%; right:3%;" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Heart_corazon.svg">
 
-<p>
-I actually did think that love letters and all that crap was lame — I still do actually.
-</p>
+<!-- ENVELOPE -->
+<div id="envelope">
+  <div id="env-body"></div>
+  <div id="env-flap"></div>
+  <div id="env-text">CLICK HERE</div>
+</div>
 
-<p>
-But from you, literally the smallest things just lights my entire life up.
-</p>
+<!-- POPUP -->
+<div id="popup">
+  You have received an anonymous letter from someone who wishes she could have given this to you in person.
+  <br><br>
+  Would you like to open it?
+  <br><br>
+  <button onclick="openLetter()">Yes</button>
+  <button onclick="openLetter()">No</button>
+</div>
 
-<p>
-God knows how you just filled that empty space in my life I didn’t even know needed filling.
-</p>
+<!-- CHAMPAGNE -->
+<div id="champagne">
+<svg viewBox="0 0 120 300">
+  <rect x="45" y="40" width="30" height="160" rx="10" fill="#1b5e20"/>
+  <rect x="50" y="10" width="20" height="40" rx="5" fill="#cfae70"/>
+  <polygon points="45,10 75,10 60,0" fill="#e5c97c"/>
+</svg>
+<span>21</span>
+<div id="bubbleContainer"></div>
+</div>
 
-<p>
-But you’re fucking amazing!
-</p>
+<!-- LETTER -->
+<div id="letter-container">
+  <div id="letter">
+    <!-- FULL LETTER CONTENT HERE -->
+    <!-- Copy your full letter from earlier -->
+  </div>
+</div>
 
-<p>
-Words will never be enough for me to tell you how much I appreciate your existence.
-</p>
+<script>
+const env = document.getElementById('envelope');
+const envFlap = document.getElementById('env-flap');
+const popup = document.getElementById('popup');
+const champagne = document.getElementById('champagne');
+const letter = document.getElementById('letter-container');
+const bubbleContainer = document.getElementById('bubbleContainer');
+const hearts = document.querySelectorAll('.heart');
 
-<p>
-You know I hate birthdays, but I love your birthday so so much because one of muruga’s best creations was made that day.
-</p>
+env.onclick = () => {
+  popup.style.display='block';
+  envFlap.style.transform='rotateX(0deg)';
+}
 
-<p>
-And if someday you feel as though we can try again, I will be right here waiting for you.
-</p>
+function openLetter(){
+  popup.style.display='none';
+  envFlap.style.transform='rotateX(-180deg)';
+  setTimeout(()=>{
+    env.style.opacity=0;
+    setTimeout(()=>{
+      env.remove();
+      champagne.style.transform='translate(-50%,-50%) scale(1)';
+      createBubbles();
+      setTimeout(()=>{
+        champagne.style.display='none';
+        letter.style.display='block';
+        autoScroll(document.getElementById("letter"));
+      },2000);
+    },800);
+  },800);
+}
 
-<p>
-<strong>Happy Birthday Love ❤️</strong>
-</p>
+// Auto-scroll
+function autoScroll(el){
+  let speed = 0.25;
+  let interval = setInterval(() => {
+    el.scrollTop += speed;
+    if (el.scrollTop + el.clientHeight >= el.scrollHeight - 5) {
+      clearInterval(interval);
+    }
+  }, 30);
+}
 
-<p>
-<i>P.S. I learnt code for you, you ungrateful shit 😘</i>
-</p>
+// Champagne bubbles
+function createBubbles(){
+  for(let i=0;i<20;i++){
+    let bubble = document.createElement('div');
+    bubble.className='bubbles';
+    bubble.style.left=Math.random()*140+'px';
+    bubble.style.animationDuration=(1+Math.random()*2)+'s';
+    bubbleContainer.appendChild(bubble);
+    setTimeout(()=>bubble.remove(),3000);
+  }
+}
 
+// Random heart colors
+function changeHeartColors(){
+  hearts.forEach(h=>{
+    const colors = ['#ff4d4d','#4dff4d','#4d4dff'];
+    h.style.filter = `drop-shadow(0 0 5px ${colors[Math.floor(Math.random()*colors.length)]})`;
+  });
+}
+setInterval(changeHeartColors, 500);
+
+</script>
+
+</body>
+</html>
